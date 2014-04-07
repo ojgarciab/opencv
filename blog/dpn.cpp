@@ -73,9 +73,10 @@ int main(int, char**)
         porcentaje = (suma * 100) / (grises.rows * grises.cols);
         // Depuramos el resultado
         std::cout << suma << " (" << porcentaje << "%)" << std::endl;
+        // Dibujamos un marco blanco alrededor de la imagen en caso de ser muy oscura
         if (porcentaje > 95) {
-         cv::rectangle(grises, cv::Rect(4, 4, grises.cols - 7, grises.rows - 7), cv::Scalar(255), 4, 8);
-       }
+            cv::rectangle(grises, cv::Rect(4, 4, grises.cols - 7, grises.rows - 7), cv::Scalar(255), 4, 8);
+        }
         // Mostramos el fotograma con el histograma y el aviso dibujado
         cv::imshow("Fotogramas", grises);
     }
